@@ -8,7 +8,6 @@ public class regExcep {
         }
     }
 
-
     static void validateName(String name) throws InvalidNameException{
         if(name.isEmpty()){
             throw new InvalidNameException("Name cannot be blank");
@@ -23,22 +22,23 @@ public class regExcep {
 
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
-        String name;
-        int age;
+         String name="";
+        int age=0;
 
         try {
-            System.out.print("Enter your name: "+name);
+            System.out.print("Enter your name: ");
             name=scanner.nextLine();
             validateName(name);
-            System.out.print("Age: "+age);
+            System.out.print("Age: ");
             age=scanner.nextInt();
 
             if(age<0){
                 throw new IllegalArgumentException("Age cannot be negative");
             }
 
-            System.out.println("Registration succesfull --> "+name+", Age: "+age);
-        } catch (InvalidNameException ex) {
+            System.out.println("Registration succesfull!");
+            System.out.println("Name: "+name+", "+age+" y.o.");
+        }catch(InvalidNameException ex){
             System.out.println("Error --> "+ex.getMessage());
         } catch(IllegalArgumentException ex){
             System.out.println("Error --> "+ex);
